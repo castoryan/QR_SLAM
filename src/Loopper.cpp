@@ -3,7 +3,6 @@
 //
 
 #include <unistd.h>
-#include <iostream>
 #include "Loopper.h"
 
 
@@ -16,7 +15,7 @@ namespace QR_SLAM{
 
     void Loopper::Run(){
         while(1){
-            std::cout<<"in Loopper"<<std::endl;
+            //std::cout<<"in Loopper"<<std::endl;
 
 
 

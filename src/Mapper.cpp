@@ -3,7 +3,6 @@
 //
 
 #include <unistd.h>
-#include <iostream>
 #include "Mapper.h"
 
 
@@ -15,7 +14,7 @@ namespace QR_SLAM{
 
     void Mapper::Run(){
         while(1){
-            std::cout<<"in Mapper"<<std::endl;
+            //std::cout<<"in Mapper"<<std::endl;
 
 
 

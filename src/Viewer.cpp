@@ -3,7 +3,6 @@
 //
 
 #include <unistd.h>
-#include <iostream>
 #include "Viewer.h"
 
 
@@ -15,7 +14,7 @@ namespace QR_SLAM{
 
     void Viewer::Run(){
         while(1){
-            std::cout<<"in Viewer"<<std::endl;
+            //std::cout<<"in Viewer"<<std::endl;
 
 
 

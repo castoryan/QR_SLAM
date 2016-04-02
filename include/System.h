@@ -13,24 +13,27 @@
 #include "Mapper.h"
 #include "Viewer.h"
 #include "Loopper.h"
+#include "Tracker.h"
 
 namespace QR_SLAM{
 
     class Viewer;
     class Mapper;
     class Loopper;
-
+    class Tracker;
 
 
     class System {
 
     public:
         System(int a);
-        void TrackMono(cv::Mat);
+        cv::Mat TrackMono(cv::Mat);
 
         std::thread* MapperTh;
         std::thread* ViewerTh;
         std::thread* LoopperTh;
+
+        Tracker* TrackerRunning;
 
         Viewer* ViewerRunning;
         Mapper* MapperRunning;

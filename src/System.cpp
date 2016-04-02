@@ -12,6 +12,9 @@ namespace QR_SLAM{
     System::System(int a){
         std::cout << "QR-SLAM is Starting, version 0.01" << std::endl;
 
+
+        TrackerRunning = new Tracker(this);
+
         MapperRunning = new Mapper();
         MapperTh  = new thread(&QR_SLAM::Mapper::Run, MapperRunning);
         LoopperRunning = new Loopper();
@@ -21,7 +24,8 @@ namespace QR_SLAM{
 
     };
 
-    void System::TrackMono(cv::Mat img){
+    cv::Mat System::TrackMono(cv::Mat img) {
 
+        return TrackerRunning->GetNewImg(img);
     }
 }

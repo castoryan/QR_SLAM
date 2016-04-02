@@ -1,7 +1,6 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <include/System.h>
-#include <unistd.h>
 
 
 using namespace std;
@@ -14,9 +13,16 @@ int main() {
 
     QR_SLAM::System sys(1);
 
+    Mat img;
+    for(;;){
+        capture>>img;
+        sys.TrackMono(img);
 
+        //imshow("Image",img);
+        waitKey(30);
+    }
 
-    usleep(50000);
+    //usleep(50000);
 
     return 0;
 }

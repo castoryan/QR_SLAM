@@ -5,7 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/KeyFrame.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Mapper.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Frame.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/Tracker.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Loopper.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Viewer.cpp" isTestSource="false" />
@@ -21,6 +20,7 @@
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
           <root url="file:///usr/local/include" />
+          <root url="file://$USER_HOME$/zbar-0.10/include" />
           <root url="file://$MODULE_DIR$/include" />
         </CLASSES>
         <SOURCES>
@@ -28,6 +28,7 @@
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
           <root url="file:///usr/local/include" />
+          <root url="file://$USER_HOME$/zbar-0.10/include" />
           <root url="file://$MODULE_DIR$/include" />
         </SOURCES>
       </library>
