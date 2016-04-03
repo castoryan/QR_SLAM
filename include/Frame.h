@@ -6,6 +6,7 @@
 #define QR_SLAM_FRAME_H
 
 #include <opencv2/core/core.hpp>
+#include <zbar.h>
 
 namespace QR_SLAM {
     class Frame {
@@ -19,6 +20,8 @@ namespace QR_SLAM {
     private:
 
         cv::Mat scanimg;
+
+        std::vector<cv::KeyPoint> frameKeyPoints;
     };
 }
 

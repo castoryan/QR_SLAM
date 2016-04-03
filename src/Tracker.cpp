@@ -8,7 +8,6 @@
 #include "Tracker.h"
 
 
-
 namespace QR_SLAM {
 
 

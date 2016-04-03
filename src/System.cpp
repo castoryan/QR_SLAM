@@ -12,8 +12,8 @@ namespace QR_SLAM{
     System::System(int a){
         std::cout << "QR-SLAM is Starting, version 0.01" << std::endl;
 
-
         TrackerRunning = new Tracker(this);
+
 
         MapperRunning = new Mapper();
         MapperTh  = new thread(&QR_SLAM::Mapper::Run, MapperRunning);

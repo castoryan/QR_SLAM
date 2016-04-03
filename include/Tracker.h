@@ -24,6 +24,7 @@ namespace QR_SLAM {
     public:
         Frame currentFrame;
 
+
     private:
         System* usSys;
         bool inifRGB;

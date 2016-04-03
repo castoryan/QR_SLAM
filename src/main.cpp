@@ -9,14 +9,15 @@ using namespace cv;
 int main() {
     cout << "QR-SLAM is Starting, version 0.01" << endl;
 
-    VideoCapture capture(0);
-
+    VideoCapture capture(1);
+    //capture.release();
     QR_SLAM::System sys(1);
 
     Mat img;
     for(;;){
         capture>>img;
         sys.TrackMono(img);
+
 
         //imshow("Image",img);
         waitKey(30);
