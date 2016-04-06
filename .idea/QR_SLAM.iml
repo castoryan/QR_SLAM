@@ -11,9 +11,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Viewer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Tracker.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/Initializer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/System.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/MapPoint.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Initializer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -37,6 +37,7 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/include/MapPoint.h" />
+          <root url="file://$MODULE_DIR$/include/Initializer.h" />
         </excluded>
       </library>
     </orderEntry>
