@@ -4,9 +4,7 @@
 
 
 #include "Frame.h"
-#include <iostream>
 //#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/opencv.hpp>
 #include <chrono>
 
 
@@ -14,19 +12,38 @@ using namespace zbar;
 
 namespace QR_SLAM{
 
-    Frame::Frame(){
+    Frame::Frame():
+            isKeyframe(false)
+    {
 
     };
 
 
-    Frame::Frame(const cv::Mat& img){
+    Frame::Frame(const cv::Mat& img, const cv::Mat& K):
+            isKeyframe(false), mK(K)
+    {
 
         FindKeypoints(img);
     }
 
-    void Frame::FindKeypoints(const cv::Mat& img){
+
+    void Frame::SetPose(cv::Mat Tcw)
+    {
+        mTcw = Tcw.clone();
+        UpdatePoseMatrices();
+    }
+
+    void Frame::UpdatePoseMatrices()
+    {
+        mRcw = mTcw.rowRange(0,3).colRange(0,3);
+        mRwc = mRcw.t();
+        mtcw = mTcw.rowRange(0,3).col(3);
+        mOw = -mRcw.t()*mtcw;
+    }
 
 
+    void Frame::FindKeypoints(const cv::Mat& img)
+    {
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
         scanimg = img;
         int kPcount = 0;
@@ -46,21 +63,26 @@ namespace QR_SLAM{
                 kPcount++;
                 for(int k = 0; k < 4; k++)if(symbol->get_location_size()==4){
 
-                        cv::KeyPoint kp;
-                        kp.pt.x = symbol->get_location_x(k);
-                        kp.pt.y = symbol->get_location_y(k);
-                        frameKeyPoints[kPcount] = kp;
+                        keyFeature kfeature;
 
-                        std::cout << "locations are "  <<  symbol->get_location_x(k) <<" "<<symbol->get_location_y(k)<<std::endl;
+                        cv::KeyPoint kp;
+                        kp.pt.x = (float)symbol->get_location_x(k);
+                        kp.pt.y = (float)symbol->get_location_y(k);
+
+                        kfeature.kp = kp;
+                        kfeature.marker_id = k;
+                        kfeature.code_id =  stoi(symbol->get_data());
+                        frameKeyFeatures.push_back(kfeature);
+
+                        //std::cout << "locations are "  <<  symbol->get_location_x(k) <<" "<<symbol->get_location_y(k)<<std::endl;
                         cv::Point sympos =  cv::Point( symbol->get_location_x(k), symbol->get_location_y(k));
                         cv::circle( scanimg, sympos, 4, cv::Scalar( 0, 0, 255 ), 3, 8 );
                     }
 
 
-
                 std::string out =  "the id of code is " + symbol->get_data();
-                std::cout << out<< std::endl;
-                cv::imshow("123",scanimg);
+                //std::cout << out<< std::endl;
+                //cv::imshow("123", scanimg);
             }
 
             std::chrono::steady_clock::time_point t3 = std::chrono::steady_clock::now();
@@ -68,12 +90,9 @@ namespace QR_SLAM{
             double ttrack1 = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
             double ttrack2 = std::chrono::duration_cast<std::chrono::microseconds>(t3 - t2).count();
             double ttrack3 = std::chrono::duration_cast<std::chrono::microseconds>(t3 - t1).count();
-            std::cout <<"ttrack1 "<< ttrack1 <<"us ttrack2 "<< ttrack2 <<"us ttrack3 is "<< ttrack3 <<"us"<< std::endl;
+            //std::cout <<"ttrack1 "<< ttrack1 <<"us ttrack2 "<< ttrack2 <<"us ttrack3 is "<< ttrack3 <<"us"<< std::endl;
+            isKeyframe = true;
         }
-
-
-
-
     }
 
 }

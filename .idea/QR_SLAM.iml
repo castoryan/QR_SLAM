@@ -4,12 +4,16 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/KeyFrame.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Mapper.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/MapPoint.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Frame.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Initializer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Loopper.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Viewer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Tracker.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Initializer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/System.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/MapPoint.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -31,6 +35,9 @@
           <root url="file://$USER_HOME$/zbar-0.10/include" />
           <root url="file://$MODULE_DIR$/include" />
         </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/include/MapPoint.h" />
+        </excluded>
       </library>
     </orderEntry>
   </component>

@@ -23,6 +23,6 @@ set(SOURCE_FILES
         src/Loopper.cpp
         src/Frame.cpp
         src/KeyFrame.cpp
-        src/Tracker.cpp)
+        src/Tracker.cpp src/MapPoint.cpp include/MapPoint.h src/Initializer.cpp include/Initializer.h)
 add_executable(QR_SLAM ${SOURCE_FILES})
 target_link_libraries( QR_SLAM ${OpenCV_LIBS} -lzbar )
