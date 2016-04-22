@@ -7,6 +7,7 @@
 
 #include <opencv2/core/core.hpp>
 #include "Frame.h"
+#include "KeyFrame.h"
 
 namespace QR_SLAM {
 
@@ -23,21 +24,28 @@ namespace QR_SLAM {
         void TrackWithTriangle();
         int matchFeatures(std::vector<Frame::keyFeature> fkf1, std::vector<Frame::keyFeature>fkf2, std::vector<int> &kfpair12);
         void MonocularInitialization();
-
+        void CreateInitialMapMonocular();
+        bool TrackReferenceKeyFrame();
 
 
     public:
         Frame currentFrame;
         Frame lastFrame;
 
+        Frame firstIniFrame;
+        Frame secondIniFrame;
 
-        Frame currentIniFrame;
-        Frame lastIniFrame;
+        KeyFrame* mCurrentRefKeyFrame;
+
+        std::vector<cv::Point3f> mvIniP3D;
 
     private:
         System* usSys;
         bool inifRGB;
         cv::Mat imGray;
+
+
+        bool initialized;
 
 
         // camera inside parameter
@@ -47,6 +55,7 @@ namespace QR_SLAM {
         //For Initializing
         Initializer* mpInitializer;
         std::vector<Frame::keyFeature> preMatched;
+
         // the one feature in frame1 correspond to which number in frame2
         std::vector<int> featureMatches12;
     };

@@ -5,40 +5,36 @@
       <sourceFolder url="file://$MODULE_DIR$/src/KeyFrame.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Mapper.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/MapPoint.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Map.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Frame.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Initializer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Loopper.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Viewer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PnPsolver.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Tracker.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/System.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/MapPoint.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/include/Initializer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Viewer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
-          <root url="file:///usr/include" />
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
           <root url="file://$USER_HOME$/zbar-0.10/include" />
           <root url="file://$MODULE_DIR$/include" />
         </CLASSES>
         <SOURCES>
-          <root url="file:///usr/include" />
-          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
           <root url="file://$USER_HOME$/zbar-0.10/include" />
           <root url="file://$MODULE_DIR$/include" />
         </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/include/MapPoint.h" />
-          <root url="file://$MODULE_DIR$/include/Initializer.h" />
-        </excluded>
       </library>
     </orderEntry>
   </component>

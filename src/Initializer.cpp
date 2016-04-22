@@ -755,7 +755,7 @@ namespace QR_SLAM{
 
 
         {
-            cout<< "inside "<<endl;
+            // cout<< "inside "<<endl;
             vR[bestSolutionIdx].copyTo(R21);
             vt[bestSolutionIdx].copyTo(t21);
             vP3D = bestP3D;

@@ -5,15 +5,21 @@
 #ifndef QR_SLAM_MAPPOINT_H
 #define QR_SLAM_MAPPOINT_H
 
-#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
 #include "KeyFrame.h"
 
 namespace QR_SLAM {
 
+    class KeyFrame;
 
     class MapPoint {
 
+    public:
+        MapPoint();
+        MapPoint(cv::Point3f worldPos);
 
+
+        void addKeyFrame(KeyFrame& kf);
         // coordinator in the world axis
         cv::Mat my_world_postition;
 

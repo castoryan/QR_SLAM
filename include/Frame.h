@@ -10,6 +10,8 @@
 #include <zbar.h>
 
 namespace QR_SLAM {
+    class MapPoint;
+
     class Frame {
 
     public:
@@ -22,6 +24,7 @@ namespace QR_SLAM {
         //typedef keyFeature kFeature;
     public:
         Frame();
+        Frame(const Frame &frame);
         Frame(const cv::Mat& img, const cv::Mat& K);
 
         bool isKeyframe;
@@ -30,6 +33,13 @@ namespace QR_SLAM {
 
         void SetPose(cv::Mat Tcw);
         void UpdatePoseMatrices();
+
+
+        long unsigned int nNextId;
+        long unsigned int nThisId;
+
+        // MapPoints associated to keypoints, NULL pointer if no association.
+        std::vector<MapPoint*> mFrameMapPoints;
 
         // Camera pose.
         cv::Mat mTcw;
@@ -41,7 +51,6 @@ namespace QR_SLAM {
         std::vector<Frame::keyFeature> frameKeyFeatures;
 
         cv::Mat mK;
-
 
         // Rotation, translation and camera center
         cv::Mat mRcw;

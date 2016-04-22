@@ -22,6 +22,7 @@ namespace QR_SLAM{
     class Loopper;
     class Tracker;
     class KeyFrame;
+    class MapPoint;
 
     class System {
 
@@ -39,7 +40,8 @@ namespace QR_SLAM{
         Mapper* MapperRunning;
         Loopper* LoopperRunning;
 
-        std::vector<KeyFrame*> GlobalMap;
+        std::vector<KeyFrame*> GlobalKeyFrame;
+        std::vector<MapPoint*> GlobalMapPoint;
 
     private:
     };

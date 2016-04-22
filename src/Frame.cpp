@@ -11,6 +11,8 @@
 using namespace zbar;
 
 namespace QR_SLAM{
+    long unsigned int nThisId = 0;
+    long unsigned int nNextId = 0;
 
     Frame::Frame():
             isKeyframe(false)
@@ -18,11 +20,17 @@ namespace QR_SLAM{
 
     };
 
+    Frame::Frame(const Frame &frame):
+            nThisId(frame.nThisId), frameKeyFeatures(frame.frameKeyFeatures), mK(frame.mK),mTcw(frame.mTcw), isKeyframe(frame.isKeyframe)
+    {
+
+    }
+
 
     Frame::Frame(const cv::Mat& img, const cv::Mat& K):
             isKeyframe(false), mK(K)
     {
-
+        nThisId = nNextId++;
         FindKeypoints(img);
     }
 

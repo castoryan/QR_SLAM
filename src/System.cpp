@@ -19,13 +19,13 @@ namespace QR_SLAM{
         MapperTh  = new thread(&QR_SLAM::Mapper::Run, MapperRunning);
         LoopperRunning = new Loopper();
         LoopperTh = new thread(&QR_SLAM::Loopper::Run, LoopperRunning);
-        ViewerRunning = new Viewer();
+        ViewerRunning = new Viewer(GlobalMapPoint,  GlobalKeyFrame);
         ViewerTh  = new thread(&QR_SLAM::Viewer::Run, ViewerRunning);
+
 
     };
 
     cv::Mat System::TrackMono(cv::Mat img) {
-
         return TrackerRunning->GetNewImg(img);
     }
 }

@@ -3,7 +3,7 @@ project(QR_SLAM)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lzbar")
 find_package( OpenCV REQUIRED )
-
+find_package(Pangolin REQUIRED)
 
 include_directories(
         ${PROJECT_SOURCE_DIR}
@@ -23,6 +23,11 @@ set(SOURCE_FILES
         src/Loopper.cpp
         src/Frame.cpp
         src/KeyFrame.cpp
-        src/Tracker.cpp src/MapPoint.cpp include/MapPoint.h src/Initializer.cpp include/Initializer.h)
+        src/Tracker.cpp
+        src/MapPoint.cpp
+        src/Initializer.cpp
+        src/Map.cpp
+        src/PnPsolver.cpp
+      )
 add_executable(QR_SLAM ${SOURCE_FILES})
-target_link_libraries( QR_SLAM ${OpenCV_LIBS} -lzbar )
+target_link_libraries( QR_SLAM ${OpenCV_LIBS} -lzbar ${Pangolin_LIBRARIES} )
