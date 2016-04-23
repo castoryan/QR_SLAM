@@ -12,7 +12,8 @@ namespace QR_SLAM{
 
     MapPoint::MapPoint(cv::Point3f Pos){
 
-       my_world_postition = cv::Mat(Pos);
+        my_world_postition_point3f = Pos;
+        my_world_postition = cv::Mat(Pos);
     }
     void MapPoint::addKeyFrame(KeyFrame& kf){
         size_t st = 5;

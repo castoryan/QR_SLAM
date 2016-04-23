@@ -22,6 +22,7 @@ namespace QR_SLAM {
         void addKeyFrame(KeyFrame& kf);
         // coordinator in the world axis
         cv::Mat my_world_postition;
+        cv::Point3f my_world_postition_point3f;
 
         // Keyframes that observed the map point and its index
         std::map<KeyFrame*,size_t> my_observation;

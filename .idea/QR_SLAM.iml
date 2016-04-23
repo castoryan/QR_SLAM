@@ -12,8 +12,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/PnPsolver.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Tracker.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Optimizer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/System.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Viewer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Optimizer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -35,6 +37,9 @@
           <root url="file://$USER_HOME$/zbar-0.10/include" />
           <root url="file://$MODULE_DIR$/include" />
         </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/include/Optimizer.h" />
+        </excluded>
       </library>
     </orderEntry>
   </component>

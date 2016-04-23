@@ -3,7 +3,7 @@ project(QR_SLAM)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lzbar")
 find_package( OpenCV REQUIRED )
-find_package(Pangolin REQUIRED)
+find_package( Pangolin REQUIRED)
 
 include_directories(
         ${PROJECT_SOURCE_DIR}
@@ -28,6 +28,8 @@ set(SOURCE_FILES
         src/Initializer.cpp
         src/Map.cpp
         src/PnPsolver.cpp
-      )
+        src/Optimizer.cpp include/Optimizer.h)
 add_executable(QR_SLAM ${SOURCE_FILES})
-target_link_libraries( QR_SLAM ${OpenCV_LIBS} -lzbar ${Pangolin_LIBRARIES} )
+target_link_libraries( QR_SLAM ${OpenCV_LIBS}
+        g2o_core g2o_types_slam3d  g2o_stuff g2o_types_sba g2o_solver_dense g2o_types_data
+        -lzbar ${Pangolin_LIBRARIES} )

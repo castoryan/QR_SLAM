@@ -8,6 +8,7 @@
 #include <include/MapPoint.h>
 #include <include/System.h>
 #include "Initializer.h"
+#include "Optimizer.h"
 
 
 namespace QR_SLAM {
@@ -73,15 +74,14 @@ namespace QR_SLAM {
         else{
             //cout<< "Frame ID is "<<currentFrame.nThisId<<endl;
 
-            cout<< "1 hahahaa" <<endl;
             bool trackOK = TrackReferenceKeyFrame();
-            if(trackOK)
+            if(trackOK&&(currentFrame.mFrameMapPoints.size()>7))
             {
                 KeyFrame* kf= new KeyFrame(currentFrame);
                 mCurrentRefKeyFrame = kf;
+                cout<<"now the number of tracking markers are "<< mCurrentRefKeyFrame->mFrameMapPoints.size()<<endl;
             }
 
-            cout<< "2 hahahaa" <<endl;
             //need for keyframe insert
             //if(currentFrame.frameKeyFeatures.size()>7)
             //{
@@ -239,14 +239,16 @@ namespace QR_SLAM {
                       (featureList1[i].marker_id==featureList2[j].marker_id))
               {
                   //TODO: problem is here!!
-                  //MapPoint* pMP =  keyframe->mFrameMapPoints[j];
+                  MapPoint* pMP =  keyframe->mFrameMapPoints[j];
                   //if(pMP != NULL){
-                  //frame.mFrameMapPoints.push_back(pMP);
+                  frame.mFrameMapPoints.push_back(pMP);
                   //mappair12.push_back(pMP);
                   count++;
                  // }
               }
-              else{
+              else
+              {
+
 
               }
           }
@@ -265,14 +267,18 @@ namespace QR_SLAM {
 
 
 
-        //if(nmatches < 8)
-          //  return false;
+        if(nmatches < 8)
+            return false;
+
+        //currentFrame.mFrameMapPoints = vpMapPointMatches;
+        currentFrame.SetPose(mCurrentRefKeyFrame->Tcw);
+
+        cout<< "pose before is " << currentFrame.mTcw<<endl;
+
+        Optimizer::PoseOptimization(&currentFrame);
+
+        cout<< "pose after is " << currentFrame.mTcw<<endl;
 /*
-        currentFrame.mFrameMapPoints = vpMapPointMatches;
-        currentFrame.SetPose(mLastFrame.mTcw);
-
-        Optimizer::PoseOptimization(&mCurrentFrame);
-
         // Discard outliers
         int nmatchesMap = 0;
         // N is the number of keypoints in frame.

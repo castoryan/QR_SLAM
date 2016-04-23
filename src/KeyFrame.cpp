@@ -14,7 +14,7 @@ namespace QR_SLAM{
     }
 
     KeyFrame::KeyFrame(const Frame &frame):
-            nKeyFrameId(frame.nThisId),keyframeKeyFeatures(frame.frameKeyFeatures)
+            nKeyFrameId(frame.nThisId),keyframeKeyFeatures(frame.frameKeyFeatures),mFrameMapPoints(frame.mFrameMapPoints)
     {
         nKeyFrameId = nNextKFId++;
         SetPose(frame.mTcw);
